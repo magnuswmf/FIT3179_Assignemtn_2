@@ -1,21 +1,21 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json", "title": { "text": "Global Carbon Dioxide Emmision" },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json", "title": { "text": "Global Carbon Dioxide Emission" },
   "data": {
     "url": "https://raw.githubusercontent.com/magnuswmf/FIT3179_Assignemtn_2/main/Data/Carbon.csv"
   },
 
   "transform": [
-    {"aggregate": [{"op":"average", "field": "Monthly Average", "as": "Average CO2 Emmision (ppm)"}],"groupby": ["Year"]}],
+    {"aggregate": [{"op":"average", "field": "Monthly Average", "as": "Average CO2 Emission (ppm)"}],"groupby": ["Year"]}],
 
   "encoding": {
     "x": { "field": "Year", "type": "ordinal"},
-    "y": { "field": "Average CO2 Emmision (ppm)", "type": "quantitative", "scale": {"domain": [300,450]},"axis": {"tickCount": 3}} ,
+    "y": { "field": "Average CO2 Emission (ppm)", "type": "quantitative", "scale": {"domain": [300,450]},"axis": {"tickCount": 3}} ,
 
     "tooltip": [{"field": "Year", "type": "ordinal"},
-      {"field": "Average CO2 Emmision (ppm)", "type": "quantitative", "format": ".2f"}],
+      {"field": "Average CO2 Emission (ppm)", "type": "quantitative", "format": ".2f"}],
 
     "color": {
-      "field": "Average CO2 Emmision (ppm)", "type": "quantitative",
+      "field": "Average CO2 Emission (ppm)", "type": "quantitative",
       "scale": {"range": ["#ffbb00", "#ff0000"]},
       "legend": null
     }
@@ -32,7 +32,7 @@
       "dy": -20
     },
     "encoding": {
-      "text":{"field": "Average CO2 Emmision (ppm)", "type": "ordinal","format":".2f"},
+      "text":{"field": "Average CO2 Emission (ppm)", "type": "ordinal","format":".2f"},
       "color": {"value": "black"},
       "opacity": {
         "condition": {
