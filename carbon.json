@@ -3,14 +3,43 @@
   "data": {
     "url": "https://raw.githubusercontent.com/magnuswmf/FIT3179_Assignemtn_2/main/Data/Carbon.csv"
   },
-  "mark": {"type": "point", "tooltip": true},
+
+  "transform": [
+    {"aggregate": [{"op":"average", "field": "Monthly Average", "as": "Average CO2 Emmision (ppm)"}],"groupby": ["Year"]}],
+
   "encoding": {
     "x": { "field": "Year", "type": "ordinal"},
-    "y": { "field": "Monthly Average", "type": "quantitative", "scale": {"domain": [300,450]},"axis": {"tickCount": 3}} ,
+    "y": { "field": "Average CO2 Emmision (ppm)", "type": "quantitative", "scale": {"domain": [300,450]},"axis": {"tickCount": 3}} ,
+
+    "tooltip": [{"field": "Year", "type": "ordinal"},
+      {"field": "Average CO2 Emmision (ppm)", "type": "quantitative", "format": ".2f"}],
+
     "color": {
-      "field": "Monthly Average", "type": "quantitative",
-      "scale": {"range": ["orange", "red"]},
+      "field": "Average CO2 Emmision (ppm)", "type": "quantitative",
+      "scale": {"range": ["#ffbb00", "#ff0000"]},
       "legend": null
     }
-  }
-}
+  },
+
+  "layer": [{
+    "mark": "circle"
+  }, {
+    "mark": {
+      "type": "text",
+      "align": "right",
+      "baseline": "top",
+      "dx": 20,
+      "dy": -20
+    },
+    "encoding": {
+      "text":{"field": "Average CO2 Emmision (ppm)", "type": "ordinal","format":".2f"},
+      "color": {"value": "black"},
+      "opacity": {
+        "condition": {
+          "test": "datum['Year'] == '1970' || datum['Year'] == '2000' || datum['Year'] == '2021' ",
+          "value": 0.9},
+        "value": 0
+      }
+
+    }
+  }]}
