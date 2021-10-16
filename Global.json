@@ -5,7 +5,7 @@
   "height": 600,
   "projection": {"type": "equalEarth"},
 
-  "data": {
+  "data": {"name": "geo",
     "url": "https://raw.githubusercontent.com/magnuswmf/FIT3179_Assignemtn_2/main/global.geo.json" , "format": {"type": "topojson", "feature": "global.geo"}},
 
   "params": [{"name": "choose_year",
@@ -21,19 +21,16 @@
   ],
 
 
-
   "transform": [
 
     {"lookup": "properties.name",
-      "from":{"data":{
+      "from":{"data": { "name": "csv",
         "url": "https://raw.githubusercontent.com/magnuswmf/FIT3179_Assignemtn_2/main/Data/Temperature_change_Data.csv"},
         "key": "Country Name",
         "fields":["tem_change","year"]
       }
 
-    },
-
-    {"filter": "datum.year > 2000"}
+    }
 
   ],
 
