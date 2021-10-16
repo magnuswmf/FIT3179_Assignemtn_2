@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json", "title": { "text": "Global Temperature Change" },
+  "data": {
+    "url": "https://raw.githubusercontent.com/magnuswmf/FIT3179_Assignemtn_2/main/Data/temp_change.csv"
+  },
+
+  "encoding": {"x":{"field": "Year ", "type": "ordinal"},
+    "y":{"field":"Change in Temperature (°C)", "type": "quantitative", "scale": {"domain": [-1,1]},"axis": {"tickCount": 3}},
+    "color":{
+      "field": "Change in Temperature (°C)",
+      "type": "quantitative",
+      "scale": {"domain":[-1,1],"domainMid": 0, "range": ["#00a2ff","#ebebeb","#ff0000"]},
+      "title": "Change (°C)"
+    }},
+
+  "layer": [{
+    "mark": "bar"
+  }, {
+    "mark": {
+      "type": "text",
+      "align": "right",
+      "baseline": "top",
+      "dx": 10,
+      "dy": -10
+
+    },
+    "encoding": {
+      "text":{"field": "Change in Temperature (°C)", "type": "ordinal"},
+      "color": {"value": "black"},
+      "opacity": {
+        "condition": {
+          "test": "datum['Year '] == '1940' || datum['Year '] == '2000' || datum['Year '] == '2020' ",
+          "value":1},
+        "value": 0
+      }
+
+    }
+  }]
+}
