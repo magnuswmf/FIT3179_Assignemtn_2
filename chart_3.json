@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "Global Temperature Change by Country", "fontSize":20},
+  "width": 900,
+  "height": 600,
+  "projection": {"type": "equalEarth"},
+
+  "data": {"name": "csv",
+    "url": "https://raw.githubusercontent.com/magnuswmf/FIT3179_Assignemtn_2/main/Data/Temperature_change_Data.csv"},
+
+  "params": [{"name": "chosen_year",
+    "value": 2019,
+    "bind":{
+      "input": "range",
+      "min": 1961,
+      "max": 2019,
+      "step": 1,
+      "name": "Select Year"
+    }
+  }
+  ],
+
+
+  "transform": [
+    {"filter":"datum.year == chosen_year"},
+
+    {"lookup": "Country Name",
+
+      "from":{"data": { "name": "geo",
+        "url": "https://raw.githubusercontent.com/magnuswmf/FIT3179_Assignemtn_2/main/global.geo.json" , "format": {"type": "topojson", "feature": "global.geo"}},
+        "key": "properties.name"
+      },
+      "as":"geo"
+
+    }
+
+  ],
+
+
+  "mark": {"type": "geoshape"},
+  "encoding": {"shape": {
+    "field":"geo",
+    "type":"geojson"
+  },"color":{"field":"tem_change","type":"quantitative","scale": {"domain":[-1,1],"domainMid": 0, "range": ["#00a2ff","#ebebeb","#ff0000"]},"title":"Average Change (°C)"},
+
+    "tooltip": [{"field": "year", "type": "ordinal","title":"Year"},
+      {"field": "Country Name", "title":"Country"},
+      {"field": "tem_change", "title": "Change in Temperature (°C)"} ]
+
+
+  }
+
+}
+
+}
