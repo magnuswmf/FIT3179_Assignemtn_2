@@ -1,0 +1,22 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Sea Level Rise",
+
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/magnuswmf/FIT3179_Assignemtn_2/main/Data/sea_level.csv"},
+
+  "transform": [
+    {"aggregate": [{"op":"average", "field": "Change", "as": "Average Change"}],"groupby": ["Year"]}],
+
+  "mark":  "rule",
+
+  "encoding": {
+    "x": {"field": "Year","type": "ordinal"},
+    "y": { "field": "Average Change", "type": "quantitative", "title":"Change in Millimeter"},
+    "color":{"field":"Average Change", "type": "quantitative","scale": {"domain":[-20,80],"domainMid": 0, "range": ["#000000","#aaaaaa","#00a2ff"]},"legend":null },
+    "tooltip":[{"field": "Year", "type": "ordinal"},
+      {"field": "Average Change", "type": "quantitative", "format": ".2f","title": "Average Chnage(mm)"}]
+  }
+
+}
