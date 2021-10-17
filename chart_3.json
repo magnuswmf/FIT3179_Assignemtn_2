@@ -4,6 +4,7 @@
   "width": 1200,
   "height": 600,
   "projection": {"type": "equalEarth"},
+  "background": null,
 
   "data": {"name": "csv",
     "url": "https://raw.githubusercontent.com/magnuswmf/FIT3179_Assignemtn_2/main/Data/Temperature_change_Data.csv"},

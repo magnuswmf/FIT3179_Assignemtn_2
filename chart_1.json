@@ -6,13 +6,14 @@
   },
   "width": 500,
   "height": 250,
+  "background": null,
 
   "transform": [
     {"aggregate": [{"op":"average", "field": "Monthly Average", "as": "Average CO2 Emission (ppm)"}],"groupby": ["Year"]}],
 
   "encoding": {
     "x": { "field": "Year", "type": "ordinal","axis":{"values":[1958,1971,2000,2021]}},
-    "y": { "field": "Average CO2 Emission (ppm)", "type": "quantitative", "scale": {"domain": [300,450]},"axis": {"tickCount": 3},"title":"Average CO2 Emission (Parts per Million)"} ,
+    "y": { "field": "Average CO2 Emission (ppm)", "type": "quantitative", "scale": {"domain": [300,450]},"axis": {"gridColor": "black","tickCount": 3},"title":"Average CO2 Emission (Parts per Million)"} ,
 
     "tooltip": [{"field": "Year", "type": "ordinal"},
       {"field": "Average CO2 Emission (ppm)", "type": "quantitative", "format": ".2f"}],
