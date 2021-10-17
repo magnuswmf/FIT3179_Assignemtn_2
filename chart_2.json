@@ -12,7 +12,7 @@
     "color":{
       "field": "Change in Temperature (°C)",
       "type": "quantitative",
-      "scale": {"domain":[-1,1],"domainMid": 0, "range": ["#00a2ff","#ebebeb","#ff0000"]},
+      "scale": {"domain":[-0.5,1],"domainMid": 0, "range": ["#00a2ff","#ebebeb","#ff0000"]},
       "legend": null
     },
     "tooltip":[{"field": "Year ", "type": "ordinal"},{"field": "Change in Temperature (°C)", "type": "quantitative", "format": ".2f","title": "Average Temp Change(°C)"}]},
