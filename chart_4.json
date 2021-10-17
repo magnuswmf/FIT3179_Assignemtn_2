@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Sea Level Rise",
+  "width":500,
+  "height":300,
 
 
   "data": {
@@ -9,14 +11,38 @@
   "transform": [
     {"aggregate": [{"op":"average", "field": "Change", "as": "Average Change"}],"groupby": ["Year"]}],
 
-  "mark":  "rule",
+
 
   "encoding": {
-    "x": {"field": "Year","type": "ordinal"},
-    "y": { "field": "Average Change", "type": "quantitative", "title":"Change in Millimeter"},
-    "color":{"field":"Average Change", "type": "quantitative","scale": {"domain":[-20,80],"domainMid": 0, "range": ["#000000","#aaaaaa","#00a2ff"]},"legend":null },
+    "x": {"field": "Year","type": "ordinal","axis":{"values":[1992,2001,2011,2021]}},
+    "y": { "field": "Average Change", "type": "quantitative", "title":"Average Change (Millimeter)","axis": {"tickCount": 5}},
+    "color":{"field":"Average Change", "type": "quantitative","scale": {"domain":[-20,80], "range": ["#aaaaaa","#00a4ff"]},"legend":null },
     "tooltip":[{"field": "Year", "type": "ordinal"},
-      {"field": "Average Change", "type": "quantitative", "format": ".2f","title": "Average Chnage(mm)"}]
-  }
+      {"field": "Average Change", "type": "quantitative", "format": ".2f","title": "Average Change(mm)"}]
+  },
+
+  "layer": [{
+    "mark":  {"type":"circle", "size":90}
+  }, {
+    "mark": {
+      "type": "text",
+      "align": "right",
+      "baseline": "top",
+      "dx": 20,
+      "dy": -30,
+      "size":15
+    },
+    "encoding": {
+      "text":{"field": "Average Change", "type": "ordinal","format":".1f"},
+      "color": {"value": "black"},
+      "opacity": {
+        "condition": {
+          "test": "datum['Year'] == '1970' || datum['Year'] == '2001' || datum['Year'] == '2021' ",
+          "value": 0.9},
+        "value": 0
+      }
+
+    }
+  }]
 
 }
