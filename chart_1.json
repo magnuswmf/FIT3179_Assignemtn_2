@@ -1,10 +1,11 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json", "title": { "text": "Global Carbon Dioxide Emission" },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": null,
   "data": {
     "url": "https://raw.githubusercontent.com/magnuswmf/FIT3179_Assignemtn_2/main/Data/Carbon.csv"
   },
   "width": 500,
-  "height": 300,
+  "height": 250,
 
   "transform": [
     {"aggregate": [{"op":"average", "field": "Monthly Average", "as": "Average CO2 Emission (ppm)"}],"groupby": ["Year"]}],

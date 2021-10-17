@@ -1,3 +1,90 @@
+html, body{
+    background: rgb(206,215,219);
+}
+
+
 h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Lato', sans-serif;
+}
+
+.pure-u-1 img{
+    width: 100vw;
+}
+
+.header {
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#text{
+    font-family: 'Lato', sans-serif;
+    text-align: left;
+
+}
+
+.pure-u-1-2 {
+    margin-top: 30px;
+    height: 30vw;
+}
+
+.pure-u-1-2 #chart1{
+    margin-right: 10%;
+
+
+
+}
+
+.pure-u-1-2 #chart2{
+    margin-left: 10%;
+
+}
+
+.pure-u-1-2 #t1,#h1{
+    margin-right: 10%;
+    margin-left: 10%;
+    font-family: 'Lato', sans-serif;
+}
+
+
+.pure-u-1-2 #t2,#h2{
+    margin-right: 15%;
+    font-family: 'Lato', sans-serif;
+}
+
+.pure-u-1-2 #t4,#h4{
+    margin-right: 10%;
+    margin-left: 10%;
+    font-family: 'Lato', sans-serif;
+}
+
+.pure-u-1 #chart3{
+    margin-left: 10%;
+}
+
+.data{
+    font-style: italic;
+}
+
+.left{
+    margin-left: 10%;
+}
+
+#chart3_header
+{
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+#footer{
+    font-family: 'Lato', sans-serif;
+    text-align: right;
+    margin-left: 10%;
 }

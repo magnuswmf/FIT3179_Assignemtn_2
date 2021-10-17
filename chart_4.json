@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Sea Level Rise",
+  "title": null,
   "width":500,
-  "height":300,
+  "height":250,
 
 
   "data": {

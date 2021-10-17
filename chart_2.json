@@ -1,11 +1,12 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json", "title": { "text": "Global Surface Temperature Change (Land and Ocean)" },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": null,
   "data": {
     "url": "https://raw.githubusercontent.com/magnuswmf/FIT3179_Assignemtn_2/main/Data/temp_change.csv"
   },
 
-  "width": 600,
-  "height": 300,
+  "width": 500,
+  "height": 250,
 
   "encoding": {"x":{"field": "Year ", "type": "ordinal","axis": {"values": [1880, 1900,1920,1940,1960,1980,2000,2020]}},
     "y":{"field":"Change in Temperature (°C)", "type": "quantitative", "scale": {"domain": [-1,1]},"axis": {"tickCount": 3}},
